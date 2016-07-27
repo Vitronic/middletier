@@ -131,7 +131,8 @@ class EventDAO extends Configuration {
             params.date_ev.map(event.date_ev is _),
             params.type_ev.map(event.type_ev is _),
             params.points_ev.map(event.points_ev is _),
-            params.userName.map(event.userName is _)
+            params.userName.map(event.userName is _),
+            params.datetime_ev.map(event.datetime_ev is _)
           ).flatten match {
             case Nil => ConstColumn.TRUE
             case seq => seq.reduce(_ && _)

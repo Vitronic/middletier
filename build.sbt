@@ -15,6 +15,8 @@ libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.25",
   "com.typesafe.akka" %% "akka-actor" % "2.1.4",
   "com.typesafe.akka" %% "akka-slf4j" % "2.1.4",
+  "joda-time" % "joda-time" % "2.3",
+  "org.joda"  % "joda-convert" % "1.6",
   "ch.qos.logback" % "logback-classic" % "1.0.13"
 )
 

@@ -1,6 +1,7 @@
 package com.mydatalogger.middletier.domain
 
 import java.util.Date
+import java.sql.Timestamp
 
 /**
  * Events search parameters.
@@ -16,4 +17,5 @@ import java.util.Date
 case class EventSearchParameters(type_ev: Option[String] = None,
                                 userName: Option[String] = None,                                
                                 points_ev: Option[String] = None,
-                                    date_ev: Option[Date] = None)
+                                    date_ev: Option[Date] = None,
+                                    datetime_ev: Option[Date] = None)

@@ -7,6 +7,7 @@ import com.mydatalogger.middletier.domain._
 import com.mydatalogger.middletier.dao.EventDAO
 import java.text.{ParseException, SimpleDateFormat}
 import java.util.Date
+//import java.sql.Timestamp
 import net.liftweb.json.Serialization._
 import net.liftweb.json.{DateFormat, Formats}
 import scala.Some
@@ -45,7 +46,7 @@ trait RestService extends HttpService with SLF4JLogging {
 
   implicit val liftJsonFormats = new Formats {
     val dateFormat = new DateFormat {
-      val sdf = new SimpleDateFormat("yyyy-MM-dd")
+      val sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
       def parse(s: String): Option[Date] = try {
         Some(sdf.parse(s))
@@ -59,7 +60,7 @@ trait RestService extends HttpService with SLF4JLogging {
 
   implicit val string2Date = new FromStringDeserializer[Date] {
     def apply(value: String) = {
-      val sdf = new SimpleDateFormat("yyyy-MM-dd")
+      val sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
       try Right(sdf.parse(value))
       catch {
         case e: ParseException => {
@@ -112,7 +113,7 @@ trait RestService extends HttpService with SLF4JLogging {
         } ~
         get {
           
-          parameters('type_ev.as[String] ?,'userName.as[String] ?,'points_ev.as[String] ?,'date_ev.as[Date] ?).as(EventSearchParameters) {
+          parameters('type_ev.as[String] ?,'userName.as[String] ?,'points_ev.as[String] ?,'date_ev.as[Date] ?,'datetime_ev.as[Date] ?).as(EventSearchParameters) {
          
             searchParameters: EventSearchParameters =>
               {
