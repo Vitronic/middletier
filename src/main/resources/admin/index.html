@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="formCtrl">
+<div class="container">
+ <div class="jumbotron">
+    <h1>Activity Tracker</h1>
+    <p>If you do not have the datalogger device to track you activity automatically, you can enter your activity manually</p> 
+ </div>
+ <div class="row">
+
+    <div class="col-sm-4">
+    <form novalidate>
+     <h3>Step 3: Enter the value</h3>
+      Name:<br>
+    <select class="form-control" ng-model="user.userName" ng-options="option for option in optionsuser" "> 
+    </select>
+      <h3>Step 1: Select your activity type</h3>
+      <label  for="sel1">Select one:</label>
+      <select class="form-control" ng-model="user.event" ng-options="option for option in options1"  ng-change="getOptions2()"> 
+      </select>     
+      <h3>Step 2:Select one category</h3>
+       <select  class="form-control" ng-model="user.type_ev" ng-options="option for option in options2">
+       </select>
+
+    Event Date :<br>
+    <input type="text" ng-model="user.date_ev"><br>
+    Event Type :<br>
+    <input type="text" ng-model="user.type_ev"><br>
+    Event Value:<br>
+    <input type="text" ng-model="user.points_ev">
+    <br><br>
+    <button class="btn btn-success" ng-click="save()">SAVE</button>
+  </form>
+  <p>form = {{master}}</p> 
+<!--  <p>master = {{master}}</p> -->
+</div>
+    </div>
+  </div>
+</div>
+  
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('formCtrl', function($scope) {
+
+ var option1Options = ["Sport","Body","Medi","Activity","Food","Mc-Fit","Rhytmus","Wohlbefinden"];
+
+ var option2Options = [["Pilatis-Minuten","Laufen-Minuten","Yoga-Minuten","Steps","Schwimm-Minuten"],
+                      ["Blut","Gewicht","Blutdruck"],
+                      ["Antibotikum","Kortison","Vivitrin","Traenenfluessigkeit","Metronzhly"],
+                      ["Tanken","Bettwaesche","Hasenkaefigreinigung","Sonnenbaden"],
+                      ["Schokolade-gramm","Obstmenge-1-6","Fleisch-1-6"],
+                      ["Latzugmaschine-Ruecken","Latzugmaschine-Brust","Beinpresse","Crunch","Crunch-Reverse","Schraeg-Beuger-Bauch","Schraeg-Beuger-Seitlich","Bizepsmaschine","Trizepsmachine","Ruderzugmaschine","Laufband-Minuten"],
+                      ["Nacht-Wachzeiten-Anzahl","Milch-Anzahl","Mittagsschlaf-Minuten","Schlafdauer-Stunden"],
+                      ["Allg.Wohlbefinden-1-6","Juckreiz-Hals","Juckreiz-Oberkoerper","Entzuendung-Nase","Entzuendung-Wangen","Entzuendung-Augen"],
+                        ];
+
+ var optionuserOptions = ["Anja","Leo","Luke","Rafael","Carla"];
+
+
+   $scope.getOptions1Idx = function(){
+   var mySelectedOption = $scope.user.event;
+   var i = 0;
+   for(i=0;i< option1Options.length;i++){
+        if(option1Options[i]==mySelectedOption){
+          break;
+        }
+   }
+   return i;
+   }
+
+   $scope.options1 = option1Options;
+   $scope.options2 = []; 
+   $scope.optionsuser = optionuserOptions; 
+
+   $scope.getOptions2 = function(){
+        $scope.options2 =  option2Options[0,$scope.getOptions1Idx()];
+    };
+
+
+    var d = new Date();
+    var n = d.toJSON();
+
+    $scope.master = {date_ev:"1001-01-01",userName:"Rafael", points_ev:"1",type_ev:"none"};
+    $scope.user = {date_ev:"1001-01-01",userName:"Rafael", points_ev:"1",type_ev:"none"};
+    $scope.user.date_ev = n.substring(0, 10);
+    
+
+
+    $scope.save = function() {
+//        $scope.master = angular.copy($scope.user);
+		
+        $scope.master.date_ev = $scope.user.date_ev
+        $scope.master.userName = $scope.user.userName
+        $scope.master.type_ev = $scope.user.type_ev
+        $scope.master.points_ev = $scope.user.points_ev
+	
+        $.ajax({
+         //jQuery.ajax({
+                //  url: "http://192.168.2.104:8080/rest/event",
+                  url: "http://mydatalogger.de:8080/rest/event",
+                  json: 'json',
+                  dataType:'json',
+                  contentType: "application/json",
+                  data: angular.toJson($scope.master),
+                  type:'POST',      
+                  success:function(result){
+                     alert(JSON.stringify(result));
+                 },
+                 error:function(xhr,status,error){
+                     alert(status);
+                 }
+                  
+          });
+
+
+
+//         var text1 = '{"firstName":"First","lastName":"Last","birthday":"1981-10-05"}'
+//         var url = "http://localhost:8088/rest/customer"
+//         var xhr = new XMLHttpRequest();
+//         xhr.open("POST", url, true);
+//         xhr.withCredentials = true;
+//         xhr.setRequestHeader("Content-type", "application/json");
+//         xhr.send(text1);
+        
+
+    };
+//    $scope.save();
+});
+</script>
+
+</body>
+</html>

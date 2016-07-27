@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="rest"
+		module="rest_2.10"
+		revision="1.0"
+		conf="container"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool, container"
+		date="20160711123914"/>
+	<dependencies>
+		<module organisation="com.github.jsimone" name="webapp-runner">
+			<revision name="7.0.34.1" status="release" pubdate="20130123195858" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://jsimone.github.com/webapp-runner" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="0">
+				<license name="Apache License, Version 2.0" url="https://github.com/jsimone/webapp-runner/blob/master/src/main/resources/license/header.txt"/>
+				<metadata-artifact status="no" details="" size="5220" time="0" location="C:\Users\RED\.ivy2\cache\com.github.jsimone\webapp-runner\ivy-7.0.34.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/jsimone/webapp-runner/7.0.34.1/webapp-runner-7.0.34.1.pom"/>
+				<caller organisation="rest" name="rest_2.10" conf="container" rev="7.0.34.1" rev-constraint-default="7.0.34.1" rev-constraint-dynamic="7.0.34.1" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="webapp-runner" type="jar" ext="jar" status="no" details="" size="7709982" time="0" location="C:\Users\RED\.ivy2\cache\com.github.jsimone\webapp-runner\jars\webapp-runner-7.0.34.1.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/jsimone/webapp-runner/7.0.34.1/webapp-runner-7.0.34.1.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

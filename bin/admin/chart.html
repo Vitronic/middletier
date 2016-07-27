@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mydatalogger - Analytics CP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    
+<!-- Style for 3d charts -->    
+<style>
+
+svg {
+  font: 10px sans-serif;
+}
+
+path.line {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+path.area {
+  fill: #e7e7e7;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.x.axis line {
+  stroke: #fff;
+}
+
+.x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis line,
+.y.axis path {
+  fill: none;
+  stroke: #000;
+}
+
+</style>
+	<script src="d3.min.js"></script>
+
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="bootstrap/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="bootstrap/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Analytics Control Panel</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#">Rafael</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li class="active"><a href="#">Monitoring</a></li>
+              <li><a href="http://mydatalogger.de"> data</a></li>
+              <li><a href="#">Recommendation Results</a></li>              
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Activity</a></li>
+              <li><a href="#">Alerts</a></li>              
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+            <h1>Analytics Control Panel</h1>
+            <p>This is an internal web application to administrate the analytics engine.</p>
+            
+            <p><a href="http://mydatalogger.de" class="btn btn-primary btn-large">Web-Analytics&raquo;</a></p>
+          </div>
+          <div class="row-fluid">
+            <div class="span3">
+                <p><div id="myUser">User</div><p>
+                <select  id="userName" name="userName">
+                    <option value="Anja" selected>Anja</option>
+                    <option value="Rafael">Rafael</option>
+                    <option value="Leo">Leo</option>
+                    <option value="Luke">Luke</option>
+                    <option value="Carla">Carla</option>
+                    <option value="Hasen">Hasen</option>
+
+                </select>
+                <p><div id="myOutput">Activity</div><p>
+                <select  id="myInput" name="event">
+                    <option value="Pilatis-Minuten" selected>Pilatis-Minuten</option>
+                    <option value="Nacht-Wachzeiten-Anzahl">Nacht-Wachzeiten-Anzahl</option>
+                    <option value="Milch-Anzahl">Milch-Anzahl</option>
+                    <option value="Schlafdauer-Stunden">Schlafdauer-Stunden</option>
+                    <option value="Mittagsschlaf-Minuten">Mittagsschlaf-Minuten</option>
+                    <option value="Allg.Wohlbefinden-1-6">Allg.Wohlbefinden-1-6</option>
+
+                </select>
+
+
+
+			<p><input id="myButton" value="Get Events" type="submit" /></p>
+			<p><input id="myClearButton" value="Clear Events" type="submit" /></p>
+			<p><input id="myRefreshButton" value="Show Chart" type="submit" /></p>
+              
+            </div><!--/span-->
+            <div  class="span9">
+		    <div id="myChart1" class="row">
+             <h2>Charting</h2>
+		      <div class="span9"></div>
+
+		    </div>
+            </div><!--/span-->
+            
+          </div><!--/row-->
+          <div class="row-fluid enctype='application/json'">
+            <div class="span8">
+              
+            </div><!--/span-->
+            <div class="span4">
+              <h2>Übersicht</h2>
+              <p>Activity </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Mydatalogger 2016</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <script>
+
+var margin = {top: 40, right: 40, bottom: 40, left: 40},
+    width = 1000 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+var parse = d3.time.format("%Y-%m-%d").parse;
+
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickSize(-height);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .ticks(40)
+    .orient("right");
+
+var area = d3.svg.area()
+    .interpolate("basis-open")
+    .x(function(d) { return x( parse(d.date_ev)); })
+    .y0(height)
+    .y1(function(d) { return y(d.points_ev); });
+    
+var line = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d) { return x( parse(d.date_ev)); })
+    .y(function(d) { return y(d.id); });
+
+var svg = d3.select("#myChart1").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json('http://mydatalogger.de:8080/rest/event?type_ev='+ document.getElementById("myInput").value+'&userName='+ document.getElementById("userName").value, function(error, data) {
+  if (error) throw error;
+	d=data
+  // Compute the minimum and maximum date, and the maximum price.
+  x.domain([ parse(data[0].date_ev),  parse(data[data.length - 1].date_ev)]);
+  y.domain([0, d3.max(data, function(d) { return d.points_ev; })]).nice();
+
+  svg
+      .datum(data)
+      .on("click", click);
+
+  svg.append("path")
+     .attr("class", "area")
+     .attr("clip-path", "url(#clip)")
+     .attr("d", area);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(" + width + ",0)")
+      .call(yAxis);
+
+  svg.append("path")
+      .attr("class", "line")
+      .attr("clip-path", "url(#clip)")
+      .attr("d", line);
+
+  svg.append("text")
+      .attr("x", width - 6)
+      .attr("y", height - 6)
+      .style("text-anchor", "end")
+      .text(data[0].symbol);
+
+  // On click, update the x-axis.
+  function click() {
+    var n = data.length - 1,
+        i = Math.floor(Math.random() * n / 2),
+        j = i + Math.floor(Math.random() * n / 2) + 1;
+    x.domain([ parse(data[i].date_ev),  parse(data[j].date_ev)]);
+    var t = svg.transition().duration(750);
+    t.select(".x.axis").call(xAxis);
+    t.select(".area").attr("d", area);
+    t.select(".line").attr("d", line);
+  }
+});
+
+// Parse dates and numbers. We assume values are sorted by date.
+// Also filter to one symbol; the S&P 500.
+function type(d) {
+  d.date_ev = parse(d.date_ev);
+  d.points_ev = +d.points_ev;
+  if (d.type_ev === "Pilatis") return d;
+}
+
+</script>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+   
+    <script src="bootstrap/js/jquery-1.11.3.min.js"></script>
+    <script src="bootstrap/js/transition.js"></script>
+    <script src="bootstrap/js/alert.js"></script>
+    <script src="bootstrap/js/modal.js"></script>
+    <script src="bootstrap/js/dropdown.js"></script>
+    <script src="bootstrap/js/scrollspy.js"></script>
+    <script src="bootstrap/js/tab.js"></script>
+    <script src="bootstrap/js/tooltip.js"></script>
+    <script src="bootstrap/js/popover.js"></script>
+    <script src="bootstrap/js/button.js"></script>
+    <script src="bootstrap/js/collapse.js"></script>
+    <script src="bootstrap/js/carousel.js"></script>
+    <script src="bootstrap/js/typeahead.js"></script>
+ <script type="text/javascript">
+ 
+
+ $("#myButton").click(function() {
+        var artistURL = "http://mydatalogger.de:8080/rest/event?type_ev="+ document.getElementById("myInput").value+'&userName='+ document.getElementById("userName").value;
+        var returnData = "";
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            async: true,
+            url: artistURL,
+            error: function(request, status, error) { alert(request.responseText) },
+            success: function(data) {
+                $("div#myOutput").html(" ");
+                returnData = "<style> table, th, td {border: 1px solid black;}</style> <table> <tr> <th> Event </th> <th>Value </th></tr>";
+                for (prop in data) {
+                    if (!data.hasOwnProperty(prop)) { continue; }
+                    if (data[prop] != null) {
+                        
+                            returnData += "<tr><td>" + data[prop].userName +"</td>"+
+                                        "<td>"+ data[prop].id + "</td></tr>";
+                        
+                    }
+                }
+                returnData = returnData + "</table>";
+                $("div#myOutput").html(returnData);
+            }
+        });
+        return (false);
+    });
+</script>
+<script type="text/javascript">
+ $("#myClearButton").click(function() {
+        $("div#myOutput").html("Output Goes Here");
+        return (false);
+    });
+    
+ $("#myRefreshButton").click(function() {
+ 
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickSize(-height);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .ticks(40)
+    .orient("right");
+
+var area = d3.svg.area()
+    .interpolate("basis-open")
+    .x(function(d) { return x( parse(d.date_ev)); })
+    .y0(height)
+    .y1(function(d) { return y(d.points_ev); });
+    
+var line = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d) { return x( parse(d.date_ev)); })
+    .y(function(d) { return y(d.id); });
+
+var svg = d3.select("#myChart1").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json('http://mydatalogger.de:8080/rest/event?type_ev='+ document.getElementById("myInput").value+'&userName='+ document.getElementById("userName").value, function(error, data) {
+  if (error) throw error;
+	d=data
+  // Compute the minimum and maximum date, and the maximum price.
+  x.domain([ parse(data[0].date_ev),  parse(data[data.length - 1].date_ev)]);
+  y.domain([0, d3.max(data, function(d) { return d.points_ev; })]).nice();
+
+  svg
+      .datum(data)
+      .on("click", click);
+
+  svg.append("path")
+     .attr("class", "area")
+     .attr("clip-path", "url(#clip)")
+     .attr("d", area);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(" + width + ",0)")
+      .call(yAxis);
+
+  svg.append("path")
+      .attr("class", "line")
+      .attr("clip-path", "url(#clip)")
+      .attr("d", line);
+
+  svg.append("text")
+      .attr("x", width - 6)
+      .attr("y", height - 6)
+      .style("text-anchor", "end")
+      .text(data[0].symbol);
+
+  // On click, update the x-axis.
+  function click() {
+    var n = data.length - 1,
+        i = Math.floor(Math.random() * n / 2),
+        j = i + Math.floor(Math.random() * n / 2) + 1;
+    x.domain([ parse(data[i].date_ev),  parse(data[j].date_ev)]);
+    var t = svg.transition().duration(750);
+    t.select(".x.axis").call(xAxis);
+    t.select(".area").attr("d", area);
+    t.select(".line").attr("d", line);
+  }
+});
+
+});
+ 
+</script>
+  </body>
+</html>

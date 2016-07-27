@@ -1,0 +1,63 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set(C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\CustomerSearchParameters.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\boot\Boot.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\config\Configuration.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\dao\CustomerDAO.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Failure.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Customer.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set()[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\CustomerSearchParameters.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\boot\Boot.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\config\Configuration.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\dao\CustomerDAO.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Failure.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Customer.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\CustomerSearchParameters.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\boot\Boot.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\config\Configuration.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\dao\CustomerDAO.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Failure.scala, C:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\domain\Customer.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 7 sources: invalidated sources (7) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 7 Scala sources to C:\DEV\scala\mydatalogger\middletier\target\scala-2.10\classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.2[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.2[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 1afdc98d, interfacing (CompilerInterface) with Scala compiler version 2.10.2[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	c:\tools\jdk16\jre\lib\resources.jar;c:\tools\jdk16\jre\lib\rt.jar;c:\tools\jdk16\jre\lib\sunrsasign.jar;c:\tools\jdk16\jre\lib\jsse.jar;c:\tools\jdk16\jre\lib\jce.jar;c:\tools\jdk16\jre\lib\charsets.jar;c:\tools\jdk16\jre\lib\modules\jdk.boot.jar;c:\tools\jdk16\jre\classes;C:\Users\RED\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.2.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	C:\DEV\scala\mydatalogger\middletier\target\scala-2.10\classes;C:\Users\RED\.ivy2\cache\io.spray\spray-servlet\jars\spray-servlet-1.1-M8.jar;C:\Users\RED\.ivy2\cache\io.spray\spray-http\jars\spray-http-1.1-M8.jar;C:\Users\RED\.ivy2\cache\org.parboiled\parboiled-scala_2.10\bundles\parboiled-scala_2.10-1.1.5.jar;C:\Users\RED\.ivy2\cache\org.parboiled\parboiled-core\bundles\parboiled-core-1.1.5.jar;C:\Users\RED\.ivy2\cache\io.spray\spray-util\jars\spray-util-1.1-M8.jar;C:\Users\RED\.ivy2\cache\io.spray\spray-io\jars\spray-io-1.1-M8.jar;C:\Users\RED\.ivy2\cache\io.spray\spray-routing\jars\spray-routing-1.1-M8.jar;C:\Users\RED\.ivy2\cache\io.spray\spray-httpx\jars\spray-httpx-1.1-M8.jar;C:\Users\RED\.ivy2\cache\org.jvnet.mimepull\mimepull\jars\mimepull-1.9.2.jar;C:\Users\RED\.ivy2\cache\com.chuusai\shapeless_2.10\jars\shapeless_2.10-1.2.4.jar;C:\Users\RED\.ivy2\cache\net.liftweb\lift-json_2.10\jars\lift-json_2.10-2.5.1.jar;C:\Users\RED\.ivy2\cache\org.scala-lang\scalap\jars\scalap-2.10.0.jar;C:\Users\RED\.ivy2\cache\org.scala-lang\scala-compiler\jars\scala-compiler-2.10.0.jar;C:\Users\RED\.ivy2\cache\org.scala-lang\scala-reflect\jars\scala-reflect-2.10.0.jar;C:\Users\RED\.ivy2\cache\com.thoughtworks.paranamer\paranamer\jars\paranamer-2.4.1.jar;C:\Users\RED\.ivy2\cache\com.typesafe.slick\slick_2.10\jars\slick_2.10-1.0.1.jar;C:\Users\RED\.ivy2\cache\mysql\mysql-connector-java\jars\mysql-connector-java-5.1.25.jar;C:\Users\RED\.ivy2\cache\com.typesafe.akka\akka-actor_2.10\bundles\akka-actor_2.10-2.1.4.jar;C:\Users\RED\.ivy2\cache\com.typesafe\config\bundles\config-1.0.0.jar;C:\Users\RED\.ivy2\cache\com.typesafe.akka\akka-slf4j_2.10\bundles\akka-slf4j_2.10-2.1.4.jar;C:\Users\RED\.ivy2\cache\ch.qos.logback\logback-classic\jars\logback-classic-1.0.13.jar;C:\Users\RED\.ivy2\cache\ch.qos.logback\logback-core\jars\logback-core-1.0.13.jar;C:\Users\RED\.ivy2\cache\org.slf4j\slf4j-api\jars\slf4j-api-1.7.5.jar[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:16: object actors is not a member of package scala[0m
+[0m[[31merror[0m] [0mimport scala.actors.Actor[0m
+[0m[[31merror[0m] [0m             ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:22: not found: type Actor[0m
+[0m[[31merror[0m] [0mclass RestServiceActor extends Actor with RestService {[0m
+[0m[[31merror[0m] [0m                               ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\boot\Boot.scala:13: type arguments [com.mydatalogger.middletier.rest.RestServiceActor] do not conform to method apply's type parameter bounds [T <: akka.actor.Actor][0m
+[0m[[31merror[0m] [0m  val serviceActor = system.actorOf(Props[RestServiceActor], "rest-endpoint")[0m
+[0m[[31merror[0m] [0m                                         ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:24: not found: value context[0m
+[0m[[31merror[0m] [0m  implicit def actorRefFactory = context[0m
+[0m[[31merror[0m] [0m                                 ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:39: reference to DateFormat is ambiguous;[0m
+[0m[[31merror[0m] [0mit is imported twice in the same scope by[0m
+[0m[[31merror[0m] [0mimport java.text.DateFormat[0m
+[0m[[31merror[0m] [0mand import net.liftweb.json.{DateFormat, Formats}[0m
+[0m[[31merror[0m] [0m    val dateFormat = new DateFormat {[0m
+[0m[[31merror[0m] [0m                         ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:109: type mismatch;[0m
+[0m[[31merror[0m] [0m found   : com.sun.xml.internal.ws.client.RequestContext => Unit[0m
+[0m[[31merror[0m] [0m required: spray.routing.RequestContext => Unit[0m
+[0m[[31merror[0m] [0m            ctx: RequestContext =>[0m
+[0m[[31merror[0m] [0m                                ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:26: could not find implicit value for parameter eh: spray.routing.ExceptionHandler[0m
+[0m[[31merror[0m] [0m  def receive = runRoute(rest)[0m
+[0m[[31merror[0m] [0m                        ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:170: value complete is not a member of com.sun.xml.internal.ws.client.RequestContext[0m
+[0m[[31merror[0m] [0m        ctx.complete(successCode, write(result))[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:172: value complete is not a member of com.sun.xml.internal.ws.client.RequestContext[0m
+[0m[[31merror[0m] [0m        ctx.complete(error.getStatusCode, net.liftweb.json.Serialization.write(Map("error" -> error.message)))[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0mC:\DEV\scala\mydatalogger\middletier\src\main\scala\com\mydatalogger\middletier\rest\RestServiceActor.scala:174: value complete is not a member of com.sun.xml.internal.ws.client.RequestContext[0m
+[0m[[31merror[0m] [0m        ctx.complete(StatusCodes.InternalServerError)[0m
+[0m[[31merror[0m] [0m            ^[0m
+[0m[[31merror[0m] [0m10 errors found[0m
+[0m[[0mdebug[0m] [0mCompilation failed (CompilerInterface)[0m
+[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) Compilation failed[0m
