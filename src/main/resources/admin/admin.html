@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="admin/bower_components/angular/angular.min.js"></script>
+<script src="admin/bower_components/angular-route/angular-route.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+
+</head>
+<body>
+<div ng-app="myApp" ng-controller="formCtrl">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span3">
+                </div>
+            <div class="span9">
+                <div class="hero-unit">
+                    <h2>Administration</h2>
+                    <p>This is an web application to administrate the analytics engine</p>
+
+                    <p><a href="#dashboard" class="btn btn-primary btn-large">Web-Analytics&raquo;</a></p>
+                </div>
+
+            </div><!--/span-->
+
+            <div class="span5">
+                <form novalidate>
+                    <h3>Step 1: Enter the value</h3>
+                    Name:<br>
+                    <select class="form-control" ng-model="user.userName" ng-options="option for option in optionsuser"
+                    ">
+                    </select>
+                    <h3>Step 2: Select your activity type</h3>
+                    <label for="sel1">Select one:</label>
+                    <select class="form-control" ng-model="user.event" ng-options="option for option in options1"
+                            ng-change="getOptions2()">
+                    </select>
+                    <h3>Step 3:Select one category</h3>
+                    <select class="form-control" ng-model="user.type_ev" ng-options="option for option in options2">
+                    </select>
+
+                    Event Date :<br>
+                    <input class="form-control" type="text" ng-model="user.date_ev"><br>
+                    Event Type :<br>
+                    <input class="form-control" type="text" ng-model="user.type_ev"><br>
+                    Event Value:<br>
+                    <input class="form-control" type="text" ng-model="user.points_ev">
+                    <br><br>
+                    <button class="btn btn-success" ng-click="save()">SAVE</button>
+                </form>
+                <p>form = {{master}}</p>
+                <!--  <p>master = {{master}}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+

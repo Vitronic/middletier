@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+</head>
+
+<body ng-app="myApp">
+<div ng-controller="formCtrl">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+            <div class="span3">
+            </div>
+            <div class="span9">
+                <div class="hero-unit">
+                    <h2>Charting</h2>
+                    <p>Login</p>
+
+                    <form action="/" id="myLogin">
+                        Username: <input type="text" name="username" id="username" ng-model="username"><br/>
+                        Password: <input type="password" name="password" id="password" ng-model="password"><br/>
+                        <button type="button" ng-click="submit()">Login</button>
+                    </form>
+                </div>
+
+            </div><!--/span-->
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
