@@ -68,10 +68,13 @@
                 <ul class="nav nav-list">
                     <li class="nav-header">Internal</li>
                     <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#pivo">Project-Planning</a></li>
+                    <li><a href="#wetter">Weather-Portal</a></li>
+                    <li><a href="#online">eAcademy</a></li>
                     <li><a href="#charting">Charting</a></li>
                     <li><a href="#admin">Administration</a></li>
                     <li class="nav-header">External</li>
-                    <li><a href="https://console.aws.amazon.com">BigData-Cluster</a></li>
+                    <li><a href="https://www.aircraft-info.de/mgflyers/briefing/booking.php">Piloten-Portal</a></li>
                     <li><a href="https://community.cloud.databricks.com">Spark-Notebook</a></li>
                 </ul>
             </div><!--/.well -->
@@ -80,7 +83,7 @@
 
     </div><!--/row-->
 
-
+http://www.eacademy.aero/
 
     <script>
         var app = angular.module("myApp", ["ngRoute"]);
@@ -95,8 +98,17 @@
                     .when("/admin", {
                         templateUrl: "admin/admin.html"
                     })
-                    .when("/aws", {
-                        templateUrl: "https://console.aws.amazon.com"
+                    .when("/online", {
+                        templateUrl: "http://www.eacademy.aero/"
+                    })
+                    .when("/pivo", {
+                        templateUrl: "https://www.pivotaltracker.com/dashboard"
+                    })
+                    .when("/wetter", {
+                        templateUrl: "https://www.flugwetter.de/fw/warn/sitemap.htm"
+                    })
+                    .when("/mgf", {
+                        templateUrl: "https://www.aircraft-info.de/mgflyers/briefing/booking.php"
                     })
                     .when("/spark", {
                         templateUrl: "https://community.cloud.databricks.com"
